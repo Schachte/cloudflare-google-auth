@@ -1,16 +1,22 @@
 {
   "name": "cloudflare-workers-and-google-oauth",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Enables easier interfacing with GCS OAuth API for use in Cloudflare Workers",
-  "main": "dist/index",
-  "typings": "dist/index",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepublishOnly": "npm run compile",
     "compile": "npm run clean && tsc -p .",
     "watch": "tsc -w -p .",
     "clean": "rm -rf dist"
   },
-  "keywords": ["cloudflare", "workers", "cloudflare workers", "google", "oauth"],
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "cloudflare workers",
+    "google",
+    "oauth"
+  ],
   "author": "Ryan Schachte <hi@ryan-schachte.com>",
   "license": "MIT",
   "devDependencies": {
