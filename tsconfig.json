@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2015",
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "declaration": true
+  },
+  "include": [
+    "test/**/*.ts",
+    "lib/**/*.ts",
+    "index.ts"
+  ]
+}
