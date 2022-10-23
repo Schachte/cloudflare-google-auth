@@ -1,8 +1,13 @@
 # Google OAuth & Cloudflare Workers
 
+[Check out the blog article here](https://ryan-schachte.com/files/cloudflare_auth)
+
+[Demo repo](https://github.com/Schachte/cloudflare-worker-gauth-example)
+
 ## Background
 
-This is a simple JS module used to facilitate OAuth2 flow from within a Cloudflare Worker. This module isn't specific to Cloudflare, but it is compatible within isolates and doesn't rely on NodeJS.
+Easiest way to grab an access token for Google OAuth without any external dependencies. This is a simple JS module used to facilitate the OAuth2 flow from within a Cloudflare Worker. This module isn't specific to Cloudflare, but it
+'s compatible within isolates and doesn't rely on NodeJS.
 
 ## Usage
 
