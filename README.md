@@ -1,6 +1,6 @@
 # Google OAuth & Cloudflare Workers
 
-[Check out the blog article here](https://ryan-schachte.com/files/cloudflare_auth)
+[Check out the blog article here](https://ryan-schachte.com/blog/cf-workers-auth)
 
 [Demo repo](https://github.com/Schachte/cloudflare-worker-gauth-example)
 
