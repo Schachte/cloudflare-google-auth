@@ -85,6 +85,7 @@ export default class GoogleOAuth {
         const buf = this.str2ab(content)
         const plainKey = signingKey
             .replace(/(\r\n|\n|\r)/gm, '')
+            .replace(/\\n/g, '')
             .replace(PEM_HEADER, '')
             .replace(PEM_FOOTER, '')
             .trim()
