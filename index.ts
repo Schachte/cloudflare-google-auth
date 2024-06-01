@@ -22,8 +22,7 @@ export interface GoogleKey {
 export default class GoogleOAuth {
     constructor(public googleKey: GoogleKey, public scopes: string[]) {}
 
-    public async getGoogleAuthToken(
-    ): Promise<string | undefined> {
+    public async getGoogleAuthToken({ sub } : { sub?: string } = {}): Promise<string | undefined> {
         const { client_email: user, private_key: key } = this.googleKey
         const scope = this.formatScopes(this.scopes)
         const jwtHeader = this.objectToBase64url({ alg: 'RS256', typ: 'JWT' })
@@ -31,15 +30,21 @@ export default class GoogleOAuth {
         try {
             const assertiontime = Math.round(Date.now() / 1000)
             const expirytime = assertiontime + 3600
-            const claimset = this.objectToBase64url({
+            const claimset = {
                 iss: user,
                 scope,
                 aud: 'https://oauth2.googleapis.com/token',
                 exp: expirytime,
                 iat: assertiontime,
-            })
+            }
 
-            const jwtUnsigned = `${jwtHeader}.${claimset}`
+            if (sub) {
+                claimset['sub'] = sub
+            }
+
+            const claimsetBase64 = this.objectToBase64url(claimset)
+
+            const jwtUnsigned = `${jwtHeader}.${claimsetBase64}`
             const signedJwt = `${jwtUnsigned}.${await this.sign(jwtUnsigned, key)}`
             const body = `grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=${signedJwt}`
 
